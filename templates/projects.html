@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="project-section section-container">
+    <div class="project-content">
+        <h1>Projects</h1>
+        <h2>📚 Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" onclick="openProjectLink('https://github.com/ikteng/Movie_Reviews')">
+                <div class="project-content">
+                    <h3>🎬 Movie Reviews Classification</h3>
+                    <p>Implement sentiment analysis on movie reviews using Naive Bayes classification and a deep learning model. </p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openProjectLink('https://github.com/ikteng/Age-and-Gender-Predictor')">
+                <div class="project-content">
+                    <h3>🧒 Age and Gender Predictor</h3>
+                    <p>Build and Train a CNN Model for age and gender prediction by analyzing facial images. </p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="openProjectLink('https://github.com/ikteng/Tic-Tac-Toe')">
+                <div class="project-content">
+                    <h3>⭕ Tic Tac Toe Game</h3>
+                    <p>A simple console-based Tic Tac Toe game with an AI opponent using the minimax algorithm with alpha-beta pruning. </p>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <a href="https://github.com/ikteng" target="_blank">
+        <button>View more projects >></button>
+        </a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+    function openProjectLink(url) {
+        window.open(url, '_blank');
+    }
+</script>
+
+{% endblock %}

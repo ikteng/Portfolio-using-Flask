@@ -1,0 +1,629 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure at least viewport height */
+    background-color: #b0e5f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em 0;
+    top: 0;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul div {
+    display: flex;
+}
+
+nav ul div.left-nav li,
+nav ul div.right-nav li {
+    margin: 0 1em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+main {
+    padding: 6em 2em 2em; /* Adjusted padding to offset content from fixed header */
+    flex: 1; /* Grow to fill remaining vertical space */
+    min-height: calc(100vh - 100px); /* Ensure content takes up at least full viewport height minus header and footer height */
+    box-sizing: border-box;
+}
+
+/* Welcome */
+.welcome-section {
+    position: relative;
+    width: 100%;
+    height: 0; /* Setting height to 0 */
+    padding-top: 56.25%; /* Adjust this value to the aspect ratio of your image (e.g., 16:9 is 56.25%) */
+    background-image: url("../media/night.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.welcome-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+    width: 80%; /* Initial width */
+    max-width: 800px;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 600px) {
+    .welcome-section {
+        font-size: 15px;
+    }
+    .welcome-content {
+        width: 70%; /* Increase width for larger screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .welcome-section {
+        font-size: 20px;
+    }
+    .welcome-content {
+        width: 60%; /* Increase width further for even larger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .welcome-section {
+        font-size: 30px;
+    }
+    .welcome-content {
+        width: 50%; /* Final width adjustment for very large screens */
+    }
+}
+
+/* Intro */
+.intro-section {
+    padding: 15px 15px;
+    background-color: #f8fdfe;
+    display: flex;
+    color: black;
+    margin-bottom: 12px; /* Add margin to separate from next section */
+}
+
+.intro-content {
+    max-width: 800px;
+}
+
+/* Skills */
+.skills-section {
+    padding: 15px 25px;
+    background-color: #f8fdfe;
+    color: black;
+    margin-bottom: 12px; /* Add margin to separate from next section */
+    text-align: center;
+}
+
+.skills-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skills-card {
+    background-color: #00B4D8;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 20px); /* Three cards per row with a gap */
+    max-width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.skills-card h2 {
+    margin-top: 0;
+}
+
+.skills-card ul {
+    padding-left: 20px;
+}
+
+.skills-card ul li {
+    margin-bottom: 0.5em; /* Add spacing between list items */
+}
+
+.skills-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Projects */
+.project-section {
+    padding: 20px;
+    background-color: #f8fdfe;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    flex: 1;
+    max-width: 200px;
+    background-color: #00B4D8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    aspect-ratio: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Add a pointer cursor on hover */
+
+     /* Media Query for smaller devices */
+    @media (max-width: 768px) {
+        width: 100%; /* Change width to 100% for devices with a width of 768 pixels or less */
+    }
+}
+
+.project-card:hover {
+    background-color: #0094b8;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.project-card p {
+    color: #f1f1f1;
+    display: none;
+    transition: opacity 0.8s ease-out; /* Updated transition */
+}
+
+.project-card:hover p {
+    display: block;
+    opacity: 0.8;
+}
+
+.project-section button {
+    background-color: #00B4D8;
+    color:white;
+    padding: 10px;
+    border: hidden;
+    font-size: 15px;
+    text-justify: center;
+    border-radius: 10px;
+}
+
+.project-section button:hover {
+    background-color: #0094b8;
+}
+
+/* Contact form styles */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.contact-form label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 0.75em 1.5em;
+    border: none;
+    background-color: #00B4D8;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0094b8;
+}
+
+/* View Messages */
+/* Container for the table */
+.table-container {
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+}
+
+/* Table styles */
+.messages-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.messages-table th, .messages-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.messages-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.messages-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.messages-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Education section */
+.section-container {
+    margin: 20px 0;
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-container h1 {
+    text-align: center;
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: inherit;
+  }
+  
+  /* Vertical ruler */
+  .timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color:#333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  
+  /* Container around content */
+  .container {
+    padding: 10px 20px;
+    position: relative;
+    background-color: inherit;
+    width: 45%;
+    color: white;
+  }
+
+  /* Circle on the timeline */
+  .container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -37px;
+    background-color: white;
+    border: 4px solid #00B4D8;
+    top: 30px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  /* Left position */
+  .left {
+    left: 0;
+  }
+  
+  /* Right position */
+  .right {
+    left: 50%;
+  }
+  
+  /* Arrow for left container */
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 34px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
+  
+  /* Arrow for right container */
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 34px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  
+  /* Adjust circle position for right containers */
+  .right::after {
+    left: -16px;
+  }
+  
+  /* Content within the timeline */
+  .content {
+    padding: 2px 30px;
+    background-color:#00B4D8;
+    position: relative;
+    border-radius: 6px;
+    color: white;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 600px) {
+    /* Adjust timeline ruler position */
+    .timeline::after {
+      left: 30px;
+    }
+  
+    /* Full-width containers */
+    .container {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+  
+    /* Arrow adjustments for smaller screens */
+    .container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+  
+    /* Circle adjustments for smaller screens */
+    .left::after,
+    .right::after {
+      left: 15px;
+    }
+  
+    /* Right container adjustment */
+    .right {
+      left: 0%;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    /* Adjust timeline ruler position */
+    .timeline::after {
+      left: 30px;
+    }
+  
+    /* Full-width containers */
+    .container {
+      width: 80%;
+      padding-left: 55px;
+      padding-right: 25px;
+    }
+  
+    /* Arrow adjustments for smaller screens */
+    .container::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+  
+    /* Circle adjustments for smaller screens */
+    .left::after,
+    .right::after {
+      left: 15px;
+    }
+  
+    /* Right container adjustment */
+    .right {
+      left: 0%;
+    }
+  }
+
+/* Coursework Cards */
+.coursework-section {
+    padding: 20px;
+    background-color: #f8fdfe;
+}
+
+.coursework-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.course-card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    background-color: #00B4D8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+.course-card:hover {
+    background-color: #0094b8;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.course-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color:white;
+}
+
+.course-card ul {
+    color:#f1f1f1;
+}
+
+.course-card ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #deeff3;
+    padding-left: 10px;
+}
+
+/* Leadership Cards */
+.leadership-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.leadership-card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+    background-color: #00B4D8;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+.leadership-card:hover {
+    background-color: #0094b8;
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.leadership-card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color:white;
+}
+
+.leadership-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color:#ecf4f9;
+}
+
+.leadership-card ul {
+    color:#dbebf6;
+}
+
+.leadership-card li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #deeff3;
+    padding-left: 10px;
+}
+
+/* Achievements */
+.achievements-content li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+/* Footer section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    width: 100%;
+}
+
+footer p.copyright {
+    font-size: 0.8em; /* Adjust the font size as needed */
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #fff; /* Change color on hover */
+}

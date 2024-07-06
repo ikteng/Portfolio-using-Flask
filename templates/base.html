@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='media/favicon.png') }}">
+    <title>Ik Teng - Portfolio</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <div class="left-nav">
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                    <li><a href="{{ url_for('education') }}">Education</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </div>
+                <div class="right-nav">
+                    <li><a href="{{ url_for('static', filename='media/Resume 5.pdf') }}" download>Resume</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <h1>Contact Me</h1>
+        <p>Email: <a href="mailto:iktengliaw@gmail.com">iktengliaw@gmail.com</a></p>
+        <p>Github: <a href="https://github.com/ikteng" target="_blank">github.com/ikteng</a></p>
+        <p class="copyright">&copy; 2024 Ik Teng</p>
+    </footer>
+    
+</body>
+</html>
