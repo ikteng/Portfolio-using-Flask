@@ -208,6 +208,14 @@ main {
     font-size: 20px;
     margin-bottom: 10px;
     color: white;
+    padding: 50px;
+}
+
+.project-card:hover h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+    padding: 0;
 }
 
 .project-card p {
